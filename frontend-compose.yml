@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+  
+  frontend-1:
+    container_name: literature-frontend-1
+    image: yuuzukatsu/literature-frontend:latest
+    restart: always
+    ports:
+      - '3000:3000'
+    networks:
+      - literature-network
+  
+  frontend-2:
+    container_name: literature-frontend-2
+    image: yuuzukatsu/literature-frontend:latest
+    restart: always
+    ports:
+      - '3001:3000'
+    networks:
+      - literature-network
+    
+networks:
+  literature-network:
+    name: literature-network
+    external: true
